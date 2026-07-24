@@ -1,0 +1,9 @@
+{
+  "modules": [
+    "chat",
+    "rag"
+  ],
+  "tools": [],
+  "installedAt": "2026-07-24",
+  "cliVersion": "1.0.0"
+}
