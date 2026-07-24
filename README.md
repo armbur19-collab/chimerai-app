@@ -11,7 +11,7 @@
 > npx chimerai add sentry
 > ```
 >
-> It is kept in sync with the current CLI release. Nothing here was hand-edited.
+> It is synced automatically on every `@chimerai/cli` release. Nothing here was hand-edited.
 
 ## What's included (free tier)
 

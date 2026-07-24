@@ -9,7 +9,7 @@ import { Toaster } from 'sonner';
 const inter = Inter({ subsets: ['latin'], display: 'swap', preload: false });
 
 export const metadata: Metadata = {
-  title: 'chimerai-app-test',
+  title: 'chimerai-app',
   description: 'AI Chat Platform powered by ChimerAI',
 };
 
