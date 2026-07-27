@@ -14,6 +14,15 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
+if not exist ".env" (
+    if exist ".env.example" (
+        echo [INFO] .env not found - creating from .env.example
+        copy /Y ".env.example" ".env" >nul
+        echo [INFO] Edit .env to add your API keys before using AI features.
+        echo.
+    )
+)
+
 echo [1/3] Installing dependencies...
 call npm install
 if %ERRORLEVEL% NEQ 0 (

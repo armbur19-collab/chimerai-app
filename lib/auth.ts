@@ -3,6 +3,9 @@ import NextAuth from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from './prisma';
 import Credentials from 'next-auth/providers/credentials';
+import GitHub from 'next-auth/providers/github';
+import Google from 'next-auth/providers/google';
+import Facebook from 'next-auth/providers/facebook';
 import bcrypt from 'bcryptjs';
 import { logAuditAction } from './audit';
 // Inline helper — no dependency on lib/permissions.ts (upgrade to Enterprise to enable RBAC)
@@ -15,6 +18,25 @@ const parsePermissions = (p: string | string[] | null | undefined): string[] => 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma) as any,
   providers: [
+    GitHub({
+      clientId: process.env.AUTH_GITHUB_ID!,
+      clientSecret: process.env.AUTH_GITHUB_SECRET!,
+    }),
+    Google({
+      clientId: process.env.AUTH_GOOGLE_ID!,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET!,
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
+    }),
+    Facebook({
+      clientId: process.env.AUTH_FACEBOOK_ID!,
+      clientSecret: process.env.AUTH_FACEBOOK_SECRET!,
+    }),
     Credentials({
       credentials: {
         email: { label: 'Email', type: 'email' },

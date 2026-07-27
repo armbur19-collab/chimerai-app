@@ -10,3 +10,8 @@ dist/
 next-env.d.ts
 *.tsbuildinfo
 .DS_Store
+
+# AI Service
+services/ai/.venv/
+services/ai/data/*
+!services/ai/data/.gitkeep

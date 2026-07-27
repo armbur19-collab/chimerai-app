@@ -13,6 +13,13 @@ if ! command -v node &> /dev/null; then
     exit 1
 fi
 
+if [ ! -f ".env" ] && [ -f ".env.example" ]; then
+    echo "[INFO] .env not found - creating from .env.example"
+    cp .env.example .env
+    echo "[INFO] Edit .env to add your API keys before using AI features."
+    echo ""
+fi
+
 echo "[1/3] Installing dependencies..."
 npm install
 
