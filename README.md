@@ -33,6 +33,10 @@ Built with ChimerAI Kickstart
 
 ## Features
 
+- 🚨 Sentry Error Monitoring
+- 🔍 RAG / Vector Store
+- 🔗 Embeddable Chat Widget
+- 💬 AI Chat Interface
 - 🔐 Authentication with NextAuth
 - 🔌 AI Model Provider Management
 - 📝 Prompt Template System
