@@ -204,7 +204,7 @@ model SystemSetting {
 // Added by chimerai
 model Conversation {
   id         String    @id @default(cuid())
-  userId     String?   // nullable — populated by resolveAuth() (null in Free-tier, real userId after add auth)
+  userId     String?   // nullable — null in Free-tier, populated after add auth
   title      String    @default("New Chat")
   model      String?
   providerId String?
@@ -219,7 +219,7 @@ model Conversation {
   @@index([userId])
   @@index([archived])
   @@index([providerId])
-  user       User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user       User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
 }
 
 model Message {
