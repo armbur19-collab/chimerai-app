@@ -52,75 +52,14 @@ export async function exportUserData(userId: string): Promise<object> {
     orderBy: { createdAt: 'asc' },
   });
 
-  const consents = await prisma.consentLog.findMany({
-    where: { userId },
-    orderBy: { updatedAt: 'desc' },
-  });
-
   return {
     exportedAt: new Date().toISOString(),
     user,
     apiKeys,
     conversations,
     apiUsage,
-    consentHistory: consents.map((c: any) => ({
-      type: c.type,
-      granted: c.granted,
-      version: c.version,
-      consentGivenAt: c.createdAt,
-      lastUpdated: c.updatedAt,
-    })),
   };
 }
 
-export async function recordConsent(userId: string, type: string, granted: boolean, version?: string): Promise<void> {
-  const ver = version ?? process.env.NEXT_PUBLIC_PRIVACY_POLICY_VERSION ?? '1.0';
-  await prisma.consentLog.upsert({
-    where: { userId_type: { userId, type } },
-    update: { granted, version: ver },
-    create: { userId, type, granted, version: ver },
-  });
-}
-
-/**
- * Check whether a user has granted consent for a specific purpose.
- * Usage: if (await hasConsent(userId, 'analytics')) { ... }
- */
-export async function hasConsent(userId: string, type: ConsentType): Promise<boolean> {
-  const consent = await prisma.consentLog.findUnique({
-    where: { userId_type: { userId, type } },
-  });
-  return consent?.granted ?? false;
-}
-
-/**
- * Return all consent entries for a user (admin view / compliance export).
- */
-export async function getAllConsents(userId: string) {
-  return prisma.consentLog.findMany({
-    where: { userId },
-    orderBy: { updatedAt: 'desc' },
-  });
-}
-
-/**
- * Return the policy version the user last consented to, or null if never consented.
- */
-export async function getConsentVersion(userId: string, type: ConsentType): Promise<string | null> {
-  const consent = await prisma.consentLog.findUnique({
-    where: { userId_type: { userId, type } },
-  });
-  return consent?.version ?? null;
-}
-
-/**
- * Check whether the user has consented to the CURRENT policy version.
- * If false, redirect the user to the consent page to re-consent.
- */
-export async function hasCurrentConsent(userId: string, type: ConsentType, currentVersion: string): Promise<boolean> {
-  const consent = await prisma.consentLog.findUnique({
-    where: { userId_type: { userId, type } },
-  });
-  if (!consent?.granted) return false;
-  return consent.version === currentVersion;
-}
+// Consent tracking (ConsentLog) requires the 'gdpr' feature — run `chimerai add gdpr`
+// to enable recordConsent/hasConsent/getAllConsents/getConsentVersion/hasCurrentConsent.

@@ -63,32 +63,8 @@ export async function requireModelPermission(
       };
     }
 
-    // allowedRoles is stored as a JSON string ("[]" or '["role1"]') — parse before use
-    const allowedRoles: string[] = (() => {
-      const raw = (model as any).allowedRoles;
-      if (Array.isArray(raw)) return raw;
-      try { return JSON.parse(raw || '[]'); } catch { return []; }
-    })();
-
-    if (allowedRoles.length > 0) {
-      const userRoles = await prisma.userRole.findMany({
-        where: { userId: session.user.id },
-        include: { role: { select: { name: true } } },
-      });
-      const roleNames = userRoles.map(ur => ur.role.name);
-      const hasRole = allowedRoles.some(r => roleNames.includes(r));
-
-      if (!hasRole) {
-        return {
-          authorized: false,
-          error: {
-            code: 'FORBIDDEN',
-            message: `Your role does not have access to model '${modelId}'`,
-            statusCode: 403,
-          },
-        };
-      }
-    }
+// No RBAC installed — allowedRoles can't be enforced without a role system.
+    // Run `chimerai add rbac` to enable per-model role restrictions.
 
     return { authorized: true, user: { id: session.user.id as string, email: session.user.email as string } };
 
