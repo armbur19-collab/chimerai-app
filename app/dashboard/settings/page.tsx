@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 
@@ -104,23 +103,6 @@ export default function SettingsPage() {
                 {exporting ? 'Exporting...' : 'Export Data'}
               </button>
             </div>
-          </div>
-        </div>
-
-        {/* Security */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold mb-4 dark:text-white">🔑 Security</h2>
-          <div className="flex items-center justify-between py-3">
-            <div>
-              <p className="font-medium dark:text-white">Two-Factor Authentication</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Add an extra layer of security with TOTP-based 2FA</p>
-            </div>
-            <Link
-              href="/settings/mfa"
-              className="px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90"
-            >
-              Manage 2FA
-            </Link>
           </div>
         </div>
 

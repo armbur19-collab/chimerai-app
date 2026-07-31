@@ -67,45 +67,47 @@ export async function GET() {
     };
 
     // Role-based allowedRoles filtering (whitelist mode).
-    // Graceful: skips entirely when RBAC is not installed.
+    // Graceful: skips entirely when RBAC is not installed (no userRole/modelAccess
+    // model on the Prisma client at all — not just an empty table).
     let visibleModels = chatModels;
-    try {
-      const userRoles = session.user.id
-        ? await (prisma as any).userRole.findMany({
-            where: { userId: session.user.id },
-            include: { role: { select: { name: true } } },
-          })
-        : [];
-      const userRoleNames = userRoles.map((ur: any) => ur.role.name);
+    if ((prisma as any).userRole && (prisma as any).modelAccess) {
+      try {
+        const userRoles = session.user.id
+          ? await (prisma as any).userRole.findMany({
+              where: { userId: session.user.id },
+              include: { role: { select: { name: true } } },
+            })
+          : [];
+        const userRoleNames = userRoles.map((ur: any) => ur.role.name);
 
-      // No roles → free tier / no RBAC: see all open models.
-      // Has roles → see only models explicitly assigned to those roles (union).
-      const roleFiltered = userRoleNames.length === 0
-        ? chatModels
-        : chatModels.filter((m: any) => {
-            const ar = parseAR(m.allowedRoles);
-            return userRoleNames.some((r: string) => ar.includes(r));
-          });
+        // No roles → free tier / no RBAC: see all open models.
+        // Has roles → see only models explicitly assigned to those roles (union).
+        const roleFiltered = userRoleNames.length === 0
+          ? chatModels
+          : chatModels.filter((m: any) => {
+              const ar = parseAR(m.allowedRoles);
+              return userRoleNames.some((r: string) => ar.includes(r));
+            });
 
-      // Per-user ModelAccess explicit overrides (allow/deny beat role rules)
-      const userModelAccess = await (prisma as any).modelAccess.findMany({
-        where: { userId: session.user.id },
-      });
-      const explicitAllow = new Set(
-        userModelAccess.filter((a: any) => a.granted).map((a: any) => a.modelId)
-      );
-      const explicitDeny = new Set(
-        userModelAccess.filter((a: any) => !a.granted).map((a: any) => a.modelId)
-      );
+        // Per-user ModelAccess explicit overrides (allow/deny beat role rules)
+        const userModelAccess = await (prisma as any).modelAccess.findMany({
+          where: { userId: session.user.id },
+        });
+        const explicitAllow = new Set(
+          userModelAccess.filter((a: any) => a.granted).map((a: any) => a.modelId)
+        );
+        const explicitDeny = new Set(
+          userModelAccess.filter((a: any) => !a.granted).map((a: any) => a.modelId)
+        );
 
-      visibleModels = roleFiltered.filter((m: any) => {
-        if (explicitDeny.has(m.id)) return false;
-        if (explicitAllow.has(m.id)) return true;
-        return true;
-      });
-    } catch (e) {
-      console.error('[models] role filter error:', e);
-      // RBAC or ModelAccess not installed — show all models
+        visibleModels = roleFiltered.filter((m: any) => {
+          if (explicitDeny.has(m.id)) return false;
+          if (explicitAllow.has(m.id)) return true;
+          return true;
+        });
+      } catch (e) {
+        console.error('[models] role filter error:', e);
+      }
     }
 
     // Apply tier filter (model.tier field — graceful fallback if field doesn't exist)

@@ -10,6 +10,8 @@ export default function DashboardPage() {
   const links = [
     { href: '/dashboard/providers', label: 'AI Providers', icon: '🔌', description: 'Manage AI model providers and API keys' },
     { href: '/dashboard/prompts', label: 'Prompt Templates', icon: '📝', description: 'Create and manage system prompts' },
+    { href: '/chat', label: 'Chat', icon: '💬', description: 'AI chat conversations' },
+    { href: '/rag', label: 'RAG', icon: '🔍', description: 'Upload and search documents (Retrieval Augmented Generation)' },
   ];
 
   return (

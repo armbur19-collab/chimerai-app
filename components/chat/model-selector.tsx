@@ -44,9 +44,9 @@ export function ModelSelector({ models, value, onValueChange, disabled }: ModelS
       value={value}
       onChange={(e) => onValueChange(e.target.value)}
       disabled={disabled}
-      className="h-8 text-xs w-[220px] rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+      className="h-8 text-xs w-[220px] rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 [color-scheme:light] dark:[color-scheme:dark]"
     >
-      <option value="" disabled className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">Select a model</option>
+      <option value="" className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">Select a model</option>
       {Object.entries(grouped).map(([providerName, providerModels]) => (
         <optgroup key={providerName} label={providerName} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold">
           {providerModels.map((model) => (

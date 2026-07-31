@@ -99,11 +99,11 @@ model Provider {
   models        Model[]
   health        ProviderHealth?
   apiUsage      ApiUsage[]
+  conversations Conversation[]
   creator       User?    @relation("CreatedProviders", fields: [createdBy], references: [id])
 
   @@index([type])
   @@index([status])
-  conversations Conversation[]
 }
 
 model Model {
@@ -194,14 +194,6 @@ model PromptTemplate {
   @@index([isDefault])
 }
 
-model SystemSetting {
-  key       String   @id
-  value     String
-  updatedAt DateTime @updatedAt
-}
-
-
-// Added by chimerai
 model Conversation {
   id         String    @id @default(cuid())
   userId     String?   // nullable — null in Free-tier, populated after add auth
@@ -213,13 +205,13 @@ model Conversation {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 
+  user     User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
   provider Provider? @relation(fields: [providerId], references: [id], onDelete: SetNull)
   messages Message[]
 
   @@index([userId])
   @@index([archived])
   @@index([providerId])
-  user       User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
 }
 
 model Message {
@@ -234,4 +226,10 @@ model Message {
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
   @@index([conversationId])
+}
+
+model SystemSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
 }

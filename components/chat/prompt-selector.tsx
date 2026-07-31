@@ -45,11 +45,11 @@ export function PromptSelector({
       value={value || ''}
       onChange={e => onChange(e.target.value || null)}
       disabled={loading}
-      className={`px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white disabled:opacity-50 ${className}`}
+      className={`h-8 text-xs w-[220px] rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 [color-scheme:light] dark:[color-scheme:dark] ${className}`}
     >
-      <option value="">{placeholder}</option>
+      <option value="" className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">{placeholder}</option>
       {prompts.map(p => (
-        <option key={p.id} value={p.id}>
+        <option key={p.id} value={p.id} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
           {p.name}{p.isDefault ? ' (Default)' : ''}
         </option>
       ))}

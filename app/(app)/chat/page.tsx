@@ -10,6 +10,7 @@ import { ChatMessage } from '@/components/chat/chat-message';
 import { ChatInput } from '@/components/chat/chat-input';
 import { ChatSidebar } from '@/components/chat/chat-sidebar';
 import { ModelSelector } from '@/components/chat/model-selector';
+import { PromptSelector } from '@/components/chat/prompt-selector';
 import type { MessageActions } from '@/components/chat/chat-message';
 
 export default function ChatPage() {
@@ -35,6 +36,8 @@ export default function ChatPage() {
     deleteConversation,
     renameConversation,
     setSelectedModelId,
+    selectedPromptId,
+    setSelectedPromptId,
     regenerateMessage,
     editMessage,
     deleteMessage,
@@ -123,6 +126,12 @@ export default function ChatPage() {
             value={selectedModelId}
             onValueChange={setSelectedModelId}
             disabled={isStreaming}
+          />
+          <PromptSelector
+            value={selectedPromptId}
+            onChange={setSelectedPromptId}
+            category="system"
+            placeholder="No system prompt"
           />
           <div className="flex-1" />
           {selectedConversationId && (

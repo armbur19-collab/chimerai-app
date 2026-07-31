@@ -5,6 +5,7 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const nextConfig = {
   reactStrictMode: true,
   // Required for ESM-only server packages (e.g. otpauth used by MFA, qrcode)
+  // OpenTelemetry packages must be external to avoid webpack "Critical dependency" warnings (Sentry v8)
   serverExternalPackages: ['otpauth', 'qrcode', '@opentelemetry/instrumentation', '@opentelemetry/instrumentation-http'],
   webpack: (config, { dev, isServer }) => {
     // Disable filesystem cache in dev to avoid Windows ENOENT race condition on .pack.gz files
