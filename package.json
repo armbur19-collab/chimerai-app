@@ -1,11 +1,11 @@
 {
-  "name": "chimerai-app",
+  "name": "final",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "next lint",
     "postinstall": "prisma generate",
     "db:generate": "prisma generate",

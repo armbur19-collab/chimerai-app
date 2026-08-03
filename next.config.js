@@ -21,6 +21,14 @@ const nextConfig = {
 };
 
 module.exports = withSentryConfig(nextConfig, {
-  silent: true,
-  disableLogger: true,
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  hideSourceMaps: true,
+  silent: !process.env.CI,
+  webpack: {
+    treeshake: {
+      removeDebugLogging: true,
+    },
+  },
 });

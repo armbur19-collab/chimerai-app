@@ -16,6 +16,7 @@ const parsePermissions = (p: string | string[] | null | undefined): string[] => 
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost: true,
   adapter: PrismaAdapter(prisma) as any,
   providers: [
     GitHub({
