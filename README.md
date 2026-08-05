@@ -9,15 +9,15 @@ npm install -g @chimerai/cli
 chimerai create my-app --sqlite
 
 ```
-# Admin Dashboard
+## Admin Dashboard
 <img width="1920" height="1040" alt="brave_VNCNsd9pZy" src="https://github.com/user-attachments/assets/0c4b8488-3bb4-4013-9d92-0de620dfdd3c" />
 
-# Manage Any AI Model Provider
+## Manage Any AI Model Provider
 <img width="1920" height="1040" alt="brave_3QTGDP8mpd" src="https://github.com/user-attachments/assets/4da76f73-ce40-4c43-814d-c9b2f2b2d961" />
 
 <img width="1920" height="1040" alt="brave_qvURfSoGe9" src="https://github.com/user-attachments/assets/c6a23561-0b7b-4ca7-ad3f-2d5237d79b7f" />
 
-# Manage Your Own AI Prompt Templates
+## Manage Your Own AI Prompt Templates
 <img width="1920" height="1040" alt="brave_RFcj3EzIdK" src="https://github.com/user-attachments/assets/e3459a7f-d461-437a-a47f-fe9e42212b3b" />
 
 
