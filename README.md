@@ -1,4 +1,3 @@
-
 # Chimerai App
 
 Built with ChimerAI Kickstart
@@ -164,6 +163,11 @@ instructions even for a provider you add later.
 ## Need more? ChimerAI CLI Enterprise & Enterprise Pro
 
 The Free tier covers the essentials — for production, team-ready, or AI-heavy products, the ChimerAI CLI offers two paid license tiers with additional generated components (one-time payment, all future updates included):
+
+<img width="1920" height="1040" alt="brave_I3EMcddhbq" src="https://github.com/user-attachments/assets/40e8ac9d-b7c6-49c4-b675-3a90d53114a6" />
+
+## User Management
+<img width="1920" height="1030" alt="msedge_yRyfFRt71F" src="https://github.com/user-attachments/assets/bc005df5-6da5-4b79-9d2d-64d5a389b5c2" />
 
 ### Enterprise ($349, one-time)
 
