@@ -9,6 +9,8 @@ chimerai create my-app --sqlite
 
 ```
 
+The command scaffolds a production-ready Next.js/TypeScript foundation for AI-powered applications — no Docker required, ready to run with SQLite as the database.
+
 ## Features
 
 - 🔐 Authentication with NextAuth
@@ -18,6 +20,19 @@ chimerai create my-app --sqlite
 - 🔍 RAG / Vector Store
 - 🚨 Sentry Error Monitoring
 
+
+The generated stack covers the core building blocks of a modern AI app:
+
+- **Chat interface (`chat-ui`)** – streaming chat UI built on Next.js, ready to use out of the box
+- **RAG pipeline (`rag`)** – Retrieval-Augmented Generation with vector search over your own knowledge sources
+- **Model provider management (`model-providers`)** – unified integration for OpenAI, Anthropic, Gemini, and others, with easy provider switching
+- **Prompt template system (`prompt-management`)** – versionable, reusable prompt templates
+- **Authentication (`auth`)** – NextAuth-based login with sessions, email, and OAuth (GitHub, Google, Facebook)
+- **Sentry monitoring (`sentry`)** – error tracking built in from the start
+- **SQLite or PostgreSQL + Prisma** – choose the database that fits your use case
+- **Docker-ready & self-hostable**
+
+The generated code is entirely yours — MIT licensed, no attribution required.
 
 ## Getting Started
 
