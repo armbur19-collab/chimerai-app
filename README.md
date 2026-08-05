@@ -2,6 +2,13 @@
 
 Built with ChimerAI Kickstart
 
+```bash
+npm install -g @chimerai/cli
+
+chimerai create my-app --sqlite
+
+```
+
 ## Features
 
 - 🔐 Authentication with NextAuth
