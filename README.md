@@ -1,3 +1,4 @@
+<img width="1920" height="1040" alt="brave_VNCNsd9pZy" src="https://github.com/user-attachments/assets/0c4b8488-3bb4-4013-9d92-0de620dfdd3c" />
 # Chimerai App
 
 Built with ChimerAI Kickstart
