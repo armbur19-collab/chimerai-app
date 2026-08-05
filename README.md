@@ -169,6 +169,41 @@ The Free tier covers the essentials — for production, team-ready, or AI-heavy 
 ## User Management
 <img width="1920" height="1030" alt="msedge_yRyfFRt71F" src="https://github.com/user-attachments/assets/bc005df5-6da5-4b79-9d2d-64d5a389b5c2" />
 
+## Role Management
+<img width="1920" height="1030" alt="msedge_7FZxPdTl6g" src="https://github.com/user-attachments/assets/674bbd36-cf2c-4e1e-b6c6-ae26c538e582" />
+
+## Complete Access Control over Users, Roles, Models, and Prompts
+<img width="1920" height="1030" alt="brave_dJG8CwDbTB" src="https://github.com/user-attachments/assets/b57743a4-e0af-4d43-bf6e-d9ff4d419467" />
+
+## Monitoring Model Usage
+<img width="1920" height="1030" alt="brave_qztg82f6Rz" src="https://github.com/user-attachments/assets/797c49a6-fd26-4e7f-8e9f-213b3cd97d57" />
+
+## Stripe Billing Integration
+<img width="1920" height="1030" alt="brave_W1QYt09P8I" src="https://github.com/user-attachments/assets/dab84f9b-6433-4837-ba13-2a079cac86d5" />
+
+## Two-Factor Authentication
+<img width="1920" height="1030" alt="brave_BaRyAebAVY" src="https://github.com/user-attachments/assets/8d06caa1-c228-4814-9db4-a2cc248b8a9a" />
+
+## Guardrails
+<img width="1920" height="1030" alt="brave_tpmesrlowf" src="https://github.com/user-attachments/assets/d346120a-c390-4537-8f5e-05f7fdeca1c5" />
+
+## AI Tools
+<img width="1920" height="1030" alt="brave_HYUQtRDxwU" src="https://github.com/user-attachments/assets/7bf69ef5-377c-40bb-a9c4-7ec777206189" />
+
+## Code Execution
+<img width="1920" height="1030" alt="brave_3eNIe00O00" src="https://github.com/user-attachments/assets/edab6adc-a1df-4a48-97de-70e63e6f13a9" />
+
+## Image AI Analysis
+<img width="1920" height="1030" alt="brave_o8mFB5dIju" src="https://github.com/user-attachments/assets/0952e039-ea9e-4fe6-ad2f-8c2b82d9e02a" />
+
+## Integrations (Google Sheets, Airtable, Webhooks)
+<img width="1920" height="1030" alt="brave_414zEs3CSc" src="https://github.com/user-attachments/assets/48363e8f-3433-47ad-a9dd-798493ddffc8" />
+
+#### Automation integration (n8n, Zapier, Make.com)
+
+Enterprise Pro's webhook stack ships with two complementary ways to connect your app to automation platforms like **n8n**. The outbound webhook system lets you register any endpoint URL in the dashboard and receive HMAC-signed HTTP calls whenever a chosen event fires (`user.created`, `billing.payment_succeeded`, your own custom events, or `*` for everything) — point it at an n8n Webhook Trigger node and workflows kick off automatically. On top of that, the AI Agent Webhook Tools give the AI agent itself a callable tool (`call_n8n_webhook`, plus `call_zapier_webhook` and a generic `call_webhook`) so it can decide at inference time to trigger an n8n workflow with a relevant payload — no separate event has to fire first.
+
+
 ### Enterprise ($349, one-time)
 
 Everything in Free, plus:
