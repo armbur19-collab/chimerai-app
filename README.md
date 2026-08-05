@@ -86,6 +86,16 @@ flowchart TB
     AIService -.-> Sentry
 ```
 
+### The AI Service runs independently
+
+The AI Service is not just an internal helper for the bundled web app — it's a standalone FastAPI service with its own REST API (default port `8002`), separate from the Next.js frontend and deployable on its own. Any of your other applications or scripts can call it directly over HTTP: chat completions, RAG queries, and the rest of the AI functionality are all exposed as regular REST endpoints, not tied to the Next.js UI in any way.
+
+- **Auth:** requests are secured with a Bearer token (`INTERNAL_SERVICE_TOKEN`) — set it once and any authorized client can call in
+- **Interactive API docs:** auto-generated OpenAPI/Swagger UI at `/docs` (and the raw schema at `/openapi.json`), so you can explore and test every endpoint without writing a client first
+- **Health check:** `GET /health` for monitoring and orchestration
+
+This makes it straightforward to reuse the same AI backend across multiple frontends, internal tools, or automation scripts — you're not limited to calling it through the generated web app.
+
 The generated stack covers the core building blocks of a modern AI app:
 
 - **Chat interface (`chat-ui`)** – streaming chat UI built on Next.js, ready to use out of the box
