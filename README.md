@@ -20,9 +20,13 @@ chimerai create my-app --sqlite
 ## Manage Your Own AI Prompt Templates
 <img width="1920" height="1040" alt="brave_RFcj3EzIdK" src="https://github.com/user-attachments/assets/e3459a7f-d461-437a-a47f-fe9e42212b3b" />
 
-
+# Chat Window - Free choice of model and prompt
 <img width="1920" height="1040" alt="brave_nJdncqU83V" src="https://github.com/user-attachments/assets/acd33031-7760-41f0-9a9e-e90649e8ef7f" />
+
+# Upload your documents to the vector database
 <img width="1920" height="1040" alt="brave_dvIG2xOGLS" src="https://github.com/user-attachments/assets/b5ae0ccf-4d8e-4d95-8238-6c87a37d001d" />
+
+# Query the vector database for information
 <img width="1920" height="1040" alt="brave_xnMUu2xT70" src="https://github.com/user-attachments/assets/84a364ec-1141-4a4e-9539-88e2d6e69149" />
 
 The command scaffolds a production-ready Next.js/TypeScript foundation for AI-powered applications — no Docker required, ready to run with SQLite as the database.
