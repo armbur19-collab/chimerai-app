@@ -1,4 +1,4 @@
-# final
+# Chimerai App
 
 Built with ChimerAI Kickstart
 
