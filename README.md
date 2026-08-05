@@ -40,6 +40,52 @@ The command scaffolds a production-ready Next.js/TypeScript foundation for AI-po
 - 🚨 Sentry Error Monitoring
 
 
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph Client["Browser"]
+        UI[Chat UI / Web App]
+        Widget[Embeddable Chat Widget]
+    end
+
+    subgraph NextApp["Next.js App (TypeScript)"]
+        Auth[NextAuth<br/>auth, sessions, OAuth]
+        API[API Routes]
+        Prompt[Prompt Template System]
+        Webhooks[Webhook Dispatcher<br/>HMAC-signed]
+    end
+
+    subgraph AIService["AI Service (FastAPI + LiteLLM)"]
+        Router[Chat / Completion Router]
+        RAG[RAG Pipeline]
+    end
+
+    subgraph Data["Data Layer"]
+        DB[(SQLite / PostgreSQL<br/>via Prisma)]
+        Vector[(Vector Store)]
+    end
+
+    Providers[["Model Providers<br/>OpenAI · Anthropic · Gemini …"]]
+    Sentry[Sentry<br/>Error Monitoring]
+    External[["External Endpoints<br/>n8n · Zapier · Make.com · Slack"]]
+
+    UI --> API
+    Widget --> API
+    API --> Auth
+    API --> Prompt
+    API --> Router
+    Router --> RAG
+    RAG --> Vector
+    Router --> Providers
+    API --> DB
+    API --> Webhooks
+    Webhooks -- events --> External
+    Router -- agent tool calls --> External
+    NextApp -.-> Sentry
+    AIService -.-> Sentry
+```
+
 The generated stack covers the core building blocks of a modern AI app:
 
 - **Chat interface (`chat-ui`)** – streaming chat UI built on Next.js, ready to use out of the box
