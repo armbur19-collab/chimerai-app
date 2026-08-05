@@ -140,6 +140,34 @@ instructions even for a provider you add later.
 └── public/           # Static assets
 ```
 
+
+## Need more? ChimerAI CLI Enterprise & Enterprise Pro
+
+The Free tier covers the essentials — for production, team-ready, or AI-heavy products, the ChimerAI CLI offers two paid license tiers with additional generated components (one-time payment, all future updates included):
+
+### Enterprise ($349, one-time)
+
+Everything in Free, plus:
+
+- **RBAC** – role-based access control
+- **Billing** – Stripe / Lemon Squeezy integration for subscriptions & payments
+- **Admin dashboard** including **users table** and **roles table** (CRUD)
+- **GDPR tools** – consent management & data export
+- **MFA** – multi-factor authentication (TOTP)
+- **Audit log** for compliance requirements
+- **Analytics** – API usage statistics
+- 3 device activations, priority support (48h)
+
+### Enterprise Pro ($699, one-time)
+
+Everything in Enterprise, plus:
+
+- **Webhooks** – event system with HMAC signing
+- **Theming** – dynamic theme engine for white-label products
+- **Guardrails** – PII detection, toxicity and prompt-injection filtering
+- **AI tools** – web search, OCR, vision, and more
+- 5 device activations, priority support (24h)
+  
 ## Learn More
 
 - [ChimerAI Documentation](https://chimerai.dev)
