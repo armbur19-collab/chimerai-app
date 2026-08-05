@@ -11,8 +11,13 @@ chimerai create my-app --sqlite
 ```
 
 <img width="1920" height="1040" alt="brave_VNCNsd9pZy" src="https://github.com/user-attachments/assets/0c4b8488-3bb4-4013-9d92-0de620dfdd3c" />
+
+#Manage Any AI Model Provider
 <img width="1920" height="1040" alt="brave_3QTGDP8mpd" src="https://github.com/user-attachments/assets/4da76f73-ce40-4c43-814d-c9b2f2b2d961" />
+
+#Manage Your Own AI Prompt Templates
 <img width="1920" height="1040" alt="brave_qvURfSoGe9" src="https://github.com/user-attachments/assets/c6a23561-0b7b-4ca7-ad3f-2d5237d79b7f" />
+
 <img width="1920" height="1040" alt="brave_RFcj3EzIdK" src="https://github.com/user-attachments/assets/e3459a7f-d461-437a-a47f-fe9e42212b3b" />
 <img width="1920" height="1040" alt="brave_nJdncqU83V" src="https://github.com/user-attachments/assets/acd33031-7760-41f0-9a9e-e90649e8ef7f" />
 <img width="1920" height="1040" alt="brave_dvIG2xOGLS" src="https://github.com/user-attachments/assets/b5ae0ccf-4d8e-4d95-8238-6c87a37d001d" />
