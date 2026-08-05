@@ -170,6 +170,17 @@ Everything in Enterprise, plus:
   
 ## Learn More
 
+📺 **Video tutorials:**
+
+- [ChimerAI Presentation](https://www.youtube.com/watch?v=hbfbY2adfcA) — a walk through the core features of ChimerAI Kickstart
+- [RAG Pipeline](https://www.youtube.com/watch?v=n1ut5dUlIdo) — document ingestion, vector search, and grounded answers with citations
+- [RBAC & User Management](https://www.youtube.com/watch?v=JSOX8IO4JMs) — roles, permissions, and access control
+- [AI Chat](https://www.youtube.com/watch?v=skhTEHIoKH8) — streaming chat interface with multi-model support
+- [Airtable Integration](https://www.youtube.com/watch?v=oUZxpxxtu-I) — read, create, update, and delete Airtable records
+- [Stripe Billing Integration](https://www.youtube.com/watch?v=UOsjW7sPHJg) — API keys, webhooks, subscription and one-time payment checkout
+
+
+- [https://www.youtube.com/watch?v=hbfbY2adfcA
 - [ChimerAI Documentation](https://chimerai.dev)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Prisma Documentation](https://www.prisma.io/docs)
